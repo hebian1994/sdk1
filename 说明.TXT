@@ -5,3 +5,6 @@
     AZURE_TENANT_ID=9c6f33c6-0a22-45e9-b129-78843f81e5f8
     连接URL
     vaultUrl("https://testkeyvalutname.vault.azure.net/")
+测试：
+   GET
+    http://localhost:8080/notice/sqlSersver
