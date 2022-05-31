@@ -1,0 +1,7 @@
+需要配置azure获取到以下几个：
+    环境变量
+    AZURE_CLIENT_ID=5d573d48-e1d2-4ec8-bf40-8fcdf7e50377;
+    AZURE_CLIENT_SECRET=XVn8Q~5BnbZ0~Qsa3KJW0mKxoBpRVIAtPyPCBbre;
+    AZURE_TENANT_ID=9c6f33c6-0a22-45e9-b129-78843f81e5f8
+    连接URL
+    vaultUrl("https://testkeyvalutname.vault.azure.net/")

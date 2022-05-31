@@ -1,15 +1,8 @@
 package com.example.demo_azure_key_vault.controller;
 
-import com.azure.identity.DefaultAzureCredentialBuilder;
-import com.azure.security.keyvault.secrets.SecretClient;
-import com.azure.security.keyvault.secrets.SecretClientBuilder;
-import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
-import com.azure.security.keyvault.secrets.models.SecretProperties;
-import com.example.demo_azure_key_vault.config.BaiduTranslateUtils;
+import com.example.demo_azure_key_vault.config.AzureKeyValutUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.time.OffsetDateTime;
 
 /**
  * https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-secrets/4.4.2/index.html
@@ -23,7 +16,7 @@ public class TestController {
 
     @GetMapping("get2")
     public String get() {
-        System.out.println(BaiduTranslateUtils.getEntozhOfString());
-        return BaiduTranslateUtils.getEntozhOfString();
+        System.out.println(AzureKeyValutUtils.getEntozhOfString());
+        return AzureKeyValutUtils.getEntozhOfString();
     }
 }
