@@ -7,13 +7,16 @@ import com.azure.security.keyvault.secrets.SecretClientBuilder;
 import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.BeanInitializationException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 @Configuration
+@PropertySource("classpath:application.properties")
 public class DataConfig {
 
     private static SecretClient secretClient;
@@ -33,12 +36,29 @@ public class DataConfig {
     private static String USERNAME;
     private static String PASSWORD;
 
+    //TODO 环境变量
+    @Value("${AZURE_CLIENT_ID}")
+    private String AZURE_CLIENT_ID;
+    //TODO 环境变量
+    @Value("${AZURE_CLIENT_SECRET}")
+    private String AZURE_CLIENT_SECRET;
+    //TODO 环境变量
+    @Value("${AZURE_TENANT_ID}")
+    private String AZURE_TENANT_ID;
+    //TODO AKV URL
+    @Value("${azure.secret.vault.AKVUrl}")
+    private String AKVUrl;
+
+
     @PostConstruct
     public void init() {
+        System.setProperty("AZURE_CLIENT_ID", AZURE_CLIENT_ID);
+        System.setProperty("AZURE_CLIENT_SECRET", AZURE_CLIENT_SECRET);
+        System.setProperty("AZURE_TENANT_ID", AZURE_TENANT_ID);
         //初始化赋值
 
         secretClient = new SecretClientBuilder()
-                .vaultUrl("https://testkeyvalutname.vault.azure.net/")
+                .vaultUrl(AKVUrl)
                 .credential(new DefaultAzureCredentialBuilder().build())
                 .buildClient();
 
