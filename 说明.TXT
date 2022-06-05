@@ -1,3 +1,7 @@
+文档地址：
+1、创建resources group 和 app service
+2、创建key valut
+3、获取 client secret credentials
 需要配置azure获取到以下几个：
     环境变量
     AZURE_CLIENT_ID=5d573d48-e1d2-4ec8-bf40-8fcdf7e50377;

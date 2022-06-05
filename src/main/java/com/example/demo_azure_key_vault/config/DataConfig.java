@@ -8,6 +8,7 @@ import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.BeanInitializationException;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -16,7 +17,8 @@ import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 @Configuration
-@PropertySource("classpath:application.properties")
+//@PropertySource(value = "classpath:customize${customize.profiles.active:}.properties")
+//@ConfigurationProperties(prefix = "test", ignoreInvalidFields = true)
 public class DataConfig {
 
     private static SecretClient secretClient;
@@ -76,8 +78,8 @@ public class DataConfig {
 //        System.out.printf("Secret created with name \"%s\" and value \"%s\"%n", secret.getName(), secret.getValue());
 
         //查询一个
-        KeyVaultSecret secret2 = secretClient.getSecret("testname1");
-        System.out.printf("根据name获取value \"%s\" and value \"%s\"%n", secret2.getName(), secret2.getValue());
+//        KeyVaultSecret secret2 = secretClient.getSecret("testname1");
+//        System.out.printf("根据name获取value \"%s\" and value \"%s\"%n", secret2.getName(), secret2.getValue());
 
 //        //更新一个
 //        secret2.getProperties().setExpiresOn(OffsetDateTime.now().plusDays(30));
