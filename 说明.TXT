@@ -1,4 +1,4 @@
-文档地址：
+文档地址：https://blog.csdn.net/hebian1994/article/details/125128911?spm=1001.2014.3001.5501
 1、创建resources group 和 app service
 2、创建key valut
 3、获取 client secret credentials
